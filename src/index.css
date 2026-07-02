@@ -1,2 +1,111 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #E6F1FB;
+  --color-brand-100: #B5D4F4;
+  --color-brand-400: #378ADD;
+  --color-brand-600: #185FA5;
+  --color-brand-800: #0C447C;
+}
+
+@layer base {
+  html.dark body {
+    background-color: #111827;
+    color: #f9fafb;
+  }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .input-field {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #111827;
+    outline: none;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .input-field:focus {
+    border-color: #185FA5;
+    box-shadow: 0 0 0 3px #E6F1FB;
+  }
+  .dark .input-field {
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #f3f4f6;
+  }
+  .dark .input-field::placeholder {
+    color: #9ca3af;
+  }
+  .dark .input-field:focus {
+    box-shadow: 0 0 0 3px rgba(22, 78, 99, 0.4);
+    border-color: #378ADD;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .btn:hover {
+    background: #f9fafb;
+  }
+  .dark .btn {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #e5e7eb;
+  }
+  .dark .btn:hover {
+    background-color: #374151;
+  }
+  .btn-primary {
+    background: #185FA5;
+    color: #fff;
+    border-color: #185FA5;
+  }
+  .btn-primary:hover {
+    background: #0C447C;
+  }
+  .btn-danger {
+    background: #fff1f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+  }
+  .btn-danger:hover {
+    background: #fee2e2;
+  }
+  .dark .btn-danger {
+    background-color: rgba(185, 28, 28, 0.2);
+    color: #fca5a5;
+    border-color: rgba(252, 165, 165, 0.3);
+  }
+  .dark .btn-danger:hover {
+    background-color: rgba(185, 28, 28, 0.3);
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+  }
+  .dark .card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+}
