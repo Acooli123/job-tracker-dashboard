@@ -87,44 +87,48 @@ export default function AuthPage() {
             </div>
             <div className="relative mb-3">
               <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">Password</label>
-              <input
-                className="input-field pr-10"
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete={tab === "signup" ? "new-password" : "current-password"}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
-                tabIndex={-1}
-              >
-                <i className={`ti ${showPassword ? "ti-eye-off" : "ti-eye"}`}></i>
-              </button>
+              <div className="relative">
+                <input
+                  className="input-field pr-10"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete={tab === "signup" ? "new-password" : "current-password"}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  tabIndex={-1}
+                >
+                  <i className={`ti ${showPassword ? "ti-eye-off" : "ti-eye"}`}></i>
+                </button>
+              </div>
             </div>
 {tab === "signup" && (
               <div className="relative mb-5">
                 <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
                   Confirm password
                 </label>
-                <input
-                  className="input-field pr-10"
-                  type={showConfirm ? "text" : "password"}
-                  placeholder="••••••••"
-                  value={confirm}
-                  onChange={(e) => setConfirm(e.target.value)}
-                  autoComplete="new-password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirm(!showConfirm)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
-                  tabIndex={-1}
-                >
-                  <i className={`ti ${showConfirm ? "ti-eye-off" : "ti-eye"}`}></i>
-                </button>
+                <div className="relative">
+                  <input
+                    className="input-field pr-10"
+                    type={showConfirm ? "text" : "password"}
+                    placeholder="••••••••"
+                    value={confirm}
+                    onChange={(e) => setConfirm(e.target.value)}
+                    autoComplete="new-password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirm(!showConfirm)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                    tabIndex={-1}
+                  >
+                    <i className={`ti ${showConfirm ? "ti-eye-off" : "ti-eye"}`}></i>
+                  </button>
+                </div>
               </div>
             )}
             <button type="submit" className="btn btn-primary w-full justify-center py-2.5 text-sm">
